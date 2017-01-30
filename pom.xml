@@ -17,6 +17,7 @@
 
     <build>
         <finalName>AgendaMejorable</finalName>
+        <!--Compila con la versión indicada-->
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -28,41 +29,29 @@
                 </configuration>
             </plugin>
 
+            <!--Empaqueta código y bibliotecas en un único jar-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.10</version>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.3</version>
                 <executions>
                     <execution>
-                        <id>copy-dependencies</id>
-                        <phase>prepare-package</phase>
+                        <phase>package</phase>
                         <goals>
-                            <goal>copy-dependencies</goal>
+                            <goal>single</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>
-                                ${project.build.directory}/libs
-                            </outputDirectory>
+                            <archive>
+                                <manifest>
+                                    <mainClass>main.Main</mainClass>
+                                </manifest>
+                            </archive>
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>2.6</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <addClasspath>true</addClasspath>
-                            <classpathPrefix>libs/</classpathPrefix>
-                            <mainClass>
-                                main.Principal
-                            </mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
             </plugin>
 
         </plugins>
