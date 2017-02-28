@@ -10,6 +10,7 @@ Intenta mejorar el código utilizando todos los recursos que hemos visto en teor
 
 En el fichero de construcción del proyecto (pom.xml), tienes un ejemplo de uso del plug-in **maven-assembly-plugin** para empaquetar tu proyecto junto con sus dependencias:
 
+```xml
  <!--Empaqueta código y bibliotecas en un único jar-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -33,6 +34,6 @@ En el fichero de construcción del proyecto (pom.xml), tienes un ejemplo de uso 
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>```
             
- Para un nuevo proyecto, lo que debes modificar es el contenido del elemento <mainClass></mainClass>, que debe ser el nombre de la clase que contiene el método **main(...)** precedido del paquete donde se encuentre la clase.
+Para un nuevo proyecto, lo que debes modificar es el contenido del elemento <mainClass></mainClass>, que debe ser el nombre de la clase que contiene el método **main(...)** precedido del paquete donde se encuentre la clase.
