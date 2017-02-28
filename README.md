@@ -37,4 +37,6 @@ En el fichero de construcción del proyecto (pom.xml), tienes un ejemplo de uso 
             </plugin>```
 
 
-Para un nuevo proyecto, lo que debes modificar es el contenido del elemento ```xml<mainClass></mainClass>```, que debe ser el nombre de la clase que contiene el método **main(...)** precedido del paquete donde se encuentre la clase.
+Para un nuevo proyecto, lo que debes modificar es el contenido del elemento 
+```xml<mainClass></mainClass>```
+, que debe ser el nombre de la clase que contiene el método **main(...)** precedido del paquete donde se encuentre la clase.
