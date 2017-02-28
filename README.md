@@ -43,3 +43,9 @@ Para un nuevo proyecto, lo que debes modificar es el contenido del elemento
 <mainClass></mainClass>
 ```
 que debe ser el nombre de la clase que contiene el método **main(...)** precedido del paquete donde se encuentre la clase.
+
+Para empaquetar:
+**mvn package**
+El fichero con extensión .jar se creará en el directorio target.
+Para ejecutar:
+**java -jar NombreFicheroJar.jar**
