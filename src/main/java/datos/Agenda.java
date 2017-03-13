@@ -6,44 +6,24 @@ import java.util.Scanner;
 
 public class Agenda {
 	private List<Contacto> contactos;
+	public static final Contacto NULL = new Empresa("No encontrado", "");
 
 	public Agenda() {
 		super();
-		contactos = new ArrayList<Contacto>();
+		contactos = new ArrayList<>();
 	}
 	
-	public void nuevaPersona() {
-		Scanner scanner = new Scanner(System.in);
-		System.out.print("Nombre: ");
-		String nombre = scanner.nextLine();
-		System.out.print("Apellidos: ");
-		String apellidos = scanner.nextLine();
-		System.out.print("Telefono: ");
-		String telefono = scanner.nextLine();
-		Contacto contacto = new Contacto(nombre, apellidos, telefono);
+	public void nuevoContacto(Contacto contacto) {
 		contactos.add(contacto);
 	}
 	
-	public void nuevaEmpresa() {
-		Scanner scanner = new Scanner(System.in);
-		System.out.print("Nombre: ");
-		String nombre = scanner.nextLine();
-		System.out.print("Telefono: ");
-		String telefono = scanner.nextLine();
-		Contacto contacto = new Contacto(nombre, "", telefono);
-		contactos.add(contacto);
-	}
-	
-	public void buscaPorNombre() {
-		boolean encontrado = false;
-		Scanner scanner = new Scanner(System.in);
-		System.out.print("Nombre a buscar: ");
-		String nombre = scanner.nextLine();
+	public Contacto buscaPorNombre(String nombre)  {
+		Contacto encontrado = NULL;
 		for(Contacto contacto: contactos)
 			if(nombre.equals(contacto.getNombre())) {
-				System.out.println(contacto);
-				encontrado = true;
+				encontrado = contacto;
+				break;
 			}
-		if(encontrado == false) System.out.println("Nada con ese nombre");
+		return encontrado;
 	}
 }

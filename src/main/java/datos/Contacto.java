@@ -3,7 +3,6 @@ package datos;
 public class Contacto {
 
 	private String nombre;
-	private String apellidos;
 	private String telefono;
 
 	public Contacto() {
@@ -12,10 +11,9 @@ public class Contacto {
 		telefono = "";
 	}
 
-	public Contacto(String nombre, String apellidos, String telefono) {
+	public Contacto(String nombre, String telefono) {
 		super();
 		this.nombre = nombre;
-		this.apellidos = apellidos;
 		this.telefono = telefono;
 	}
 
@@ -23,13 +21,15 @@ public class Contacto {
 		return nombre;
 	}
 
+	public String getTelefono() {
+		return telefono;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("[");
 		builder.append(nombre);
-		builder.append(", ");
-		builder.append(apellidos);
 		builder.append(", ");
 		builder.append(telefono);
 		builder.append("]");
