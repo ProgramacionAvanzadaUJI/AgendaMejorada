@@ -6,15 +6,17 @@ import datos.Agenda;
  * Created by oscar on 13/03/17.
  */
 public enum OpcionMenu {
-    SALIR("Salir"),
-    NUEVA_PERSONA("Nueva persona"),
-    NUEVA_EMPRESA("Nueva empresa"),
-    BUSCAR_POR_NOMBRE("Buscar por nombre");
+    SALIR("Salir", new Salir()),
+    NUEVA_PERSONA("Nueva persona", new NuevaPersona()),
+    NUEVA_EMPRESA("Nueva empresa", new NuevaEmpresa()),
+    BUSCAR_POR_NOMBRE("Buscar por nombre", new BuscaPorNombre());
 
     private String descripcion;
+    private EjecutaOpcion ejecutaOpcion;
 
-    OpcionMenu(String descripcion) {
+    OpcionMenu(String descripcion, EjecutaOpcion ejecutaOpcion) {
         this.descripcion = descripcion;
+        this.ejecutaOpcion = ejecutaOpcion;
     }
 
     public static String menu() {
@@ -30,5 +32,9 @@ public enum OpcionMenu {
 
     public static OpcionMenu filtraOpcion(int posicion) {
         return values()[posicion];
+    }
+
+    public void ejecuta(Agenda agenda) {
+        ejecutaOpcion.ejecuta(agenda);
     }
 }
