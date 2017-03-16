@@ -1,12 +1,10 @@
-#AgendaMejorable
+#AgendaMejorada
 
-Código fuente de una agenda muy sencilla, y muy mal programada.
+Agenda mejor programada
 
-Intenta mejorar el código utilizando todos los recursos que hemos visto en teoría:
-
-1. Sobrecarga.
-1. Polimorfismo (interfaces, herencia).
-1. Principios SOLID.
+1. Se ha aplicado herencia
+1. Se ha desacoplado la entrada de la salida.
+1. Se ha aplicado el patrón de diseño __Strategy__ para eliminar el switch de filtrado de la opción a ejecutar.
 
 En el fichero de construcción del proyecto (pom.xml), tienes un ejemplo de uso del plug-in **maven-assembly-plugin** para empaquetar tu proyecto junto con sus dependencias:
 
